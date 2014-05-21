@@ -24,5 +24,6 @@
                 </ControlTemplate>
             </ListBox.Template>
         </ListBox>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[You Can Darag &amp; Drop the Points for Testing the Control]" VerticalAlignment="Bottom" Grid.Row="3" Margin="0,0,0,4" FontSize="13.333"/>
     </Grid>
 </Window>

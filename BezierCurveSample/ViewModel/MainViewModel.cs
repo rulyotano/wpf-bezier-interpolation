@@ -58,15 +58,15 @@ namespace BezierCurveSample.ViewModel
             var toRet = new ObservableCollection<PointViewModel>();
 
             //TODO: Add initials the items
-            toRet.Add(new PointViewModel(3,3));
+            toRet.Add(new PointViewModel(173, 42));
             toRet.Add(new PointViewModel(5,1));
-            toRet.Add(new PointViewModel(17,50));
-            toRet.Add(new PointViewModel(45,9));
-            toRet.Add(new PointViewModel(34,33));
-            toRet.Add(new PointViewModel(70,68));
-            toRet.Add(new PointViewModel(8,23));
-            toRet.Add(new PointViewModel(60,100));
-            toRet.Add(new PointViewModel(14,34));
+            toRet.Add(new PointViewModel(64, 84));
+            toRet.Add(new PointViewModel(210, 64));
+            toRet.Add(new PointViewModel(191, 90));
+            toRet.Add(new PointViewModel(241, 206));
+            toRet.Add(new PointViewModel(31, 138));
+            toRet.Add(new PointViewModel(338, 112));
+            toRet.Add(new PointViewModel(310, 33));
 
             toRet.CollectionChanged += OnPointsCollectionChanged;
 
