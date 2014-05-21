@@ -1,0 +1,28 @@
+﻿<Window x:Class="BezierCurveSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:View="clr-namespace:BezierCurveSample.View"
+        Title="MainWindow" 
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Height="350" Width="525">
+    <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="44"/>
+    		<RowDefinition Height="20"/>
+    		<RowDefinition/>
+    	</Grid.RowDefinitions>
+    	<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Center" FontWeight="Bold" FontSize="18.667"/>
+    	<StackPanel Grid.Row="1">
+    		<CheckBox Content="Close Curve" IsChecked="{Binding IsClosedCurve}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+    	</StackPanel>
+        <Canvas Grid.Row="2">
+            <View:LandmarkControl Points="{Binding Points}" IsClosedCurve="{Binding IsClosedCurve}"/>
+        </Canvas>
+        <ListBox Grid.Row="2" ItemsSource="{Binding Points}" ItemContainerStyle="{StaticResource PointListBoxItemStyle}">
+            <ListBox.Template>
+                <ControlTemplate>
+                    <Canvas IsItemsHost="True"/>
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListBox>
+    </Grid>
+</Window>
