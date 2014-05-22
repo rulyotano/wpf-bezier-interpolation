@@ -22,7 +22,7 @@ You are welcome!
 Contact the author:
 -------------------
 
-<b>Raúl Otaño Hurtado<b/>
+<b>Raúl Otaño Hurtado<b/><br>
 <b>Email: </b><a href"mailto://rulyotano@gmail.com">rulyotano@gmail.com<a/>
 
 
