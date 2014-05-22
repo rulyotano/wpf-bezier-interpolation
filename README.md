@@ -3,6 +3,8 @@ WPF-Bezier-Interpolation
 
 This is a sample project for the CodePlex article <a href="http://www.codeproject.com/Articles/769055/Interpolate-2D-points-usign-Bezier-curves-in-WPF">Interpolate 2D points, usign Bezier curves in WPF<a/>. I suggest to read the article.
 
+![Alt text](screenshot.jpg?raw=true "The sample running")
+
 What is it about?
 -----------------
 
@@ -20,7 +22,7 @@ You are welcome!
 Contact the author:
 -------------------
 
-<h2>Raúl Otaño Hurtado<h2/>
+<b>Raúl Otaño Hurtado<b/>
 <b>Email: </b><a href"mailto://rulyotano@gmail.com">rulyotano@gmail.com<a/>
 
 
