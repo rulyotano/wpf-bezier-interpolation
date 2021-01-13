@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\Geometry\BeizerCurveSegment.cs" />
+    <Compile Include="Common\Geometry\Point.cs" />
     <Compile Include="Common\Numerics.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PointViewModel.cs" />
@@ -76,7 +78,7 @@
     <Compile Include="View\LandmarkControl.xaml.cs">
       <DependentUpon>LandmarkControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Utils\InterpolationUtils.cs" />
+    <Compile Include="Common\Geometry\InterpolationUtils.cs" />
     <Compile Include="View\Utils\ViewUtils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

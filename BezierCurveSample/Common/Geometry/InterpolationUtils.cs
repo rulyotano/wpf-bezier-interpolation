@@ -1,20 +1,12 @@
-﻿using System;
+﻿using BezierCurveSample.Common.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 
 namespace BezierCurveSample.View.Utils
 {
     public class InterpolationUtils
     {
-        public class BeizerCurveSegment
-        {
-            public Point StartPoint { get; set; }
-            public Point EndPoint { get; set; }
-            public Point FirstControlPoint { get; set; }
-            public Point SecondControlPoint { get; set; }
-        }
-
         public static List<BeizerCurveSegment> InterpolatePointWithBeizerCurves(List<Point> points, bool isClosedCurve)
         {
             if (points.Count < 3)
