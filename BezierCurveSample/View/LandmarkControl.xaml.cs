@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using BezierCurveSample.View.Utils;
+using Point = BezierCurveSample.Common.Geometry.Point;
 
 namespace BezierCurveSample.View
 {
@@ -75,7 +76,7 @@ namespace BezierCurveSample.View
         #region IsClosedCurve
 
         public static readonly DependencyProperty IsClosedCurveProperty =
-            DependencyProperty.Register("IsClosedCurve", typeof (bool), typeof (LandmarkControl),
+            DependencyProperty.Register("IsClosedCurve", typeof(bool), typeof(LandmarkControl),
                                         new PropertyMetadata(default(bool), OnIsClosedCurveChanged));
 
         private static void OnIsClosedCurveChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
@@ -88,7 +89,7 @@ namespace BezierCurveSample.View
 
         public bool IsClosedCurve
         {
-            get { return (bool) GetValue(IsClosedCurveProperty); }
+            get { return (bool)GetValue(IsClosedCurveProperty); }
             set { SetValue(IsClosedCurveProperty, value); }
         }
 
@@ -98,6 +99,11 @@ namespace BezierCurveSample.View
         public LandmarkControl()
         {
             InitializeComponent();
+        }
+
+        private System.Windows.Point ConvertToVisualPoint(Point p)
+        {
+            return new System.Windows.Point(p.X, p.Y);
         }
 
         void SetPathData()
@@ -119,7 +125,7 @@ namespace BezierCurveSample.View
             if (points.Count <= 1)
                 return;
 
-            var myPathFigure = new PathFigure { StartPoint = points.FirstOrDefault() };
+            var myPathFigure = new PathFigure { StartPoint = ConvertToVisualPoint(points.FirstOrDefault()) };
 
 
             var myPathSegmentCollection = new PathSegmentCollection();
@@ -132,7 +138,7 @@ namespace BezierCurveSample.View
                 foreach (var point in points.GetRange(1, points.Count - 1))
                 {
 
-                    var myLineSegment = new LineSegment { Point = point };
+                    var myLineSegment = new LineSegment { Point = ConvertToVisualPoint(point) };
                     myPathSegmentCollection.Add(myLineSegment);
                 }
             }
@@ -142,9 +148,9 @@ namespace BezierCurveSample.View
                 {
                     var segment = new BezierSegment
                     {
-                        Point1 = beizerCurveSegment.FirstControlPoint,
-                        Point2 = beizerCurveSegment.SecondControlPoint,
-                        Point3 = beizerCurveSegment.EndPoint
+                        Point1 = ConvertToVisualPoint(beizerCurveSegment.FirstControlPoint),
+                        Point2 = ConvertToVisualPoint(beizerCurveSegment.SecondControlPoint),
+                        Point3 = ConvertToVisualPoint(beizerCurveSegment.EndPoint)
                     };
                     myPathSegmentCollection.Add(segment);
                 }
@@ -153,7 +159,7 @@ namespace BezierCurveSample.View
 
             myPathFigure.Segments = myPathSegmentCollection;
 
-            var myPathFigureCollection = new PathFigureCollection {myPathFigure} ;
+            var myPathFigureCollection = new PathFigureCollection { myPathFigure };
 
             var myPathGeometry = new PathGeometry { Figures = myPathFigureCollection };
 
