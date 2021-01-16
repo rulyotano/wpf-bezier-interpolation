@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace BezierCurveSample.View.Utils
 {
-    public class InterpolationUtils
+    public class Interpolation
     {
-        public static List<BeizerCurveSegment> InterpolatePointWithBeizerCurves(List<Point> points, bool isClosedCurve)
+        public static List<BeizerCurveSegment> InterpolatePointWithBeizerCurves(List<Point> points, bool isClosedCurve, double smoothValue = 0.8)
         {
             if (points.Count < 3)
                 return null;
@@ -76,16 +76,16 @@ namespace BezierCurveSample.View.Utils
                     y3 = points[i + 2].Y;
                 }
 
-                double xc1 = (x0 + x1) / 2.0;
-                double yc1 = (y0 + y1) / 2.0;
-                double xc2 = (x1 + x2) / 2.0;
-                double yc2 = (y1 + y2) / 2.0;
-                double xc3 = (x2 + x3) / 2.0;
-                double yc3 = (y2 + y3) / 2.0;
+                double xc1 = Geometry.Middle(x0, x1);
+                double yc1 = Geometry.Middle(y0, y1);
+                double xc2 = Geometry.Middle(x1, x2);
+                double yc2 = Geometry.Middle(y1, y2);
+                double xc3 = Geometry.Middle(x2, x3);
+                double yc3 = Geometry.Middle(y2, y3);
 
-                double len1 = Math.Sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0));
-                double len2 = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-                double len3 = Math.Sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
+                double len1 = Geometry.EuclideanDistance(x0, y0, x1, y1);
+                double len2 = Geometry.EuclideanDistance(x1, y1, x2, y2);
+                double len3 = Geometry.EuclideanDistance(x2, y2, x3, y3);
 
                 double k1 = len1 / (len1 + len2);
                 double k2 = len2 / (len2 + len3);
@@ -96,7 +96,6 @@ namespace BezierCurveSample.View.Utils
                 double xm2 = xc2 + (xc3 - xc2) * k2;
                 double ym2 = yc2 + (yc3 - yc2) * k2;
 
-                const double smoothValue = 0.8;
                 // Resulting control points. Here smooth_value is mentioned
                 // above coefficient K whose value should be in range [0...1].
                 double ctrl1_x = xm1 + (xc2 - xm1) * smoothValue + x1 - xm1;

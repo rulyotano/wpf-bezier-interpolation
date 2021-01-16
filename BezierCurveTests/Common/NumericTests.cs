@@ -19,8 +19,8 @@ namespace BezierCurveTests.Common
         [DataTestMethod]
         public void FloatEqualsWhenEquals(float n1, float n2, bool expected)
         {
-            Assert.AreEqual(expected, Numerics.FloatEquals(n1, n2));
-            Assert.AreEqual(expected, Numerics.FloatEquals(n1, n2, Numerics.Epsilon));
+            Assert.AreEqual(expected, Numeric.FloatEquals(n1, n2));
+            Assert.AreEqual(expected, Numeric.FloatEquals(n1, n2, Numeric.Epsilon));
         }
 
         [TestMethod("DoubleEquals should return true when less than epsilon and false otherwise")]
@@ -34,8 +34,8 @@ namespace BezierCurveTests.Common
         [DataTestMethod]
         public void DoubleEqualsWhenEquals(double n1, double n2, bool expected)
         {
-            Assert.AreEqual(expected, Numerics.DoubleEquals(n1, n2));
-            Assert.AreEqual(expected, Numerics.DoubleEquals(n1, n2, Numerics.Epsilon));
+            Assert.AreEqual(expected, Numeric.DoubleEquals(n1, n2));
+            Assert.AreEqual(expected, Numeric.DoubleEquals(n1, n2, Numeric.Epsilon));
         }
 
         [TestMethod("RadianToDegreeConvert should return according to (180*radian)/PI")]
@@ -47,7 +47,7 @@ namespace BezierCurveTests.Common
         public void RadianToDegreeConvertShouldReturnAccordingToFormula(float n)
         {
             var expected = (float)((n * 180) / Math.PI);
-            Assert.IsTrue(Numerics.FloatEquals(expected, Numerics.RadianToDegreeConvert(n)));
+            Assert.IsTrue(Numeric.FloatEquals(expected, Numeric.RadianToDegreeConvert(n)));
         }
 
         [TestMethod("DegreeToRadianConvert should return according to (degree*PI)/180")]
@@ -60,7 +60,7 @@ namespace BezierCurveTests.Common
         public void DegreeToRadianConvertShouldReturnAccordingToFormula(double n)
         {
             var expected = (n * Math.PI) / 180f;
-            Assert.IsTrue(Numerics.DoubleEquals(expected, Numerics.DegreeToRadianConvert(n)));
+            Assert.IsTrue(Numeric.DoubleEquals(expected, Numeric.DegreeToRadianConvert(n)));
         }
     }
 }

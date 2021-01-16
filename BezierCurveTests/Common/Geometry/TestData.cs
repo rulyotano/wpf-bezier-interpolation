@@ -46,10 +46,65 @@ namespace BezierCurveTests.Common.Geometry
                         new BeizerCurveSegment(point8, new Point(361.86691, 103.01782), point9, point9),
                     },
                     IsClosed = false,
-                    Smooth = 0.8
                 };
             }
         }
+
+        public static TestCase TestCas2
+        {
+            get
+            {
+                Point point1 = new Point(173, 42);
+                Point point2 = new Point(5, 1);
+                Point point3 = new Point(64, 84);
+
+                return new TestCase
+                {
+                    InputPoints = new List<Point> {
+                        point1,
+                        point2,
+                        point3,
+                    },
+
+                    ExpectedOutput = new List<BeizerCurveSegment>
+                    {
+                        new BeizerCurveSegment(point1,  new Point(158.91451, 22.18482), new Point(32.44093, -9.57356), point2),
+                        new BeizerCurveSegment(point2, new Point(-11.15906, 7.22643), new Point( 32.70182, 76.36175), point3),
+                        new BeizerCurveSegment(point3, new Point( 99.90182, 92.76175), new Point(182.51451, 55.38482), point1),
+                        },
+                    IsClosed = true,
+                };
+            }
+        }
+
+        public static TestCase TestCas3
+        {
+            get
+            {
+                Point point1 = new Point(173, 42);
+                Point point2 = new Point(5, 1);
+                Point point3 = new Point(64, 84);
+
+                return new TestCase
+                {
+                    InputPoints = new List<Point> {
+                        point1,
+                        point2,
+                        point3,
+                    },
+
+                    ExpectedOutput = new List<BeizerCurveSegment>
+                    {
+                        new BeizerCurveSegment(point1,  new Point(167.71794, 34.56930), new Point(15.29034, -2.96508), point2),
+                        new BeizerCurveSegment(point2, new Point(-1.05965, 3.33491), new Point(52.26318, 81.13565), point3),
+                        new BeizerCurveSegment(point3, new Point(77.46318, 87.28565), new Point(176.56794, 47.01930), point1),
+                        },
+                    IsClosed = true,
+                    Smooth = 0.3
+                };
+            }
+        }
+
     }
 
     public class TestCase
