@@ -27,7 +27,7 @@ namespace BezierCurveSample.ViewModel
             get { return x; }
             set
             {
-                if (Numerics.FloatEquals(x, value)) return;
+                if (Numeric.FloatEquals(x, value)) return;
                 x = value;
                 RaisePropertyChanged("X");
             }
@@ -44,7 +44,7 @@ namespace BezierCurveSample.ViewModel
             get { return y; }
             set
             {
-                if (Numerics.FloatEquals(y, value)) return;
+                if (Numeric.FloatEquals(y, value)) return;
                 y = value;
                 RaisePropertyChanged("Y");
             }

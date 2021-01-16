@@ -130,7 +130,7 @@ namespace BezierCurveSample.View
 
             var myPathSegmentCollection = new PathSegmentCollection();
 
-            var beizerSegments = InterpolationUtils.InterpolatePointWithBeizerCurves(points, IsClosedCurve);
+            var beizerSegments = Interpolation.InterpolatePointWithBeizerCurves(points, IsClosedCurve);
 
             if (beizerSegments == null || beizerSegments.Count < 1)
             {

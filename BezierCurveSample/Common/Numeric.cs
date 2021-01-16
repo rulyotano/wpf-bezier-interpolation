@@ -2,7 +2,7 @@
 
 namespace BezierCurveSample.Common
 {
-    public static class Numerics
+    public static class Numeric
     {
         public const double Epsilon = 0.00001;
 

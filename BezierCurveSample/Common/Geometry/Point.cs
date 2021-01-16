@@ -18,18 +18,11 @@ namespace BezierCurveSample.Common.Geometry
 
         public double Y { get; set; }
 
-        public double EuclideanDistance(Point other)
-        {
-            var xDiff = other.X - X;
-            var yDiff = other.Y - Y;
-            return Math.Sqrt(xDiff * xDiff + yDiff * yDiff);
-        }
-
         public override bool Equals(object obj)
         {
             var point = obj as Point;
 
-            return Numerics.DoubleEquals(X, point.X) && Numerics.DoubleEquals(Y, point.Y);
+            return Numeric.DoubleEquals(X, point.X) && Numeric.DoubleEquals(Y, point.Y);
         }
     }
 }
