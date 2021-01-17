@@ -10,9 +10,12 @@ What is it about?
 
 The main goal of this project is provide a control that, given a sorted collection of points draw a curve for interpolate those points (the curve will pass for each point). 
 
-Besides that, another goal is that this control could be used with the MVVM pattern, then when each point's position changes, or when any point is added or removed, the control is refreshed.
+Besides that, another goal is that this control could be used along the MVVM pattern, then when each point's position changes, or when any point is added or removed, the control is refreshed.
 
 In this example app, the points can be dragged by the user, and also can be draw a closed or open curve.
+
+**NEW:**
+Also was added the adding points in the best curve placement behavior. Now when clicking in some canvas locations, a point is added to the curve and inserted at the right point.
 
 Want to contribute?
 -------------------
