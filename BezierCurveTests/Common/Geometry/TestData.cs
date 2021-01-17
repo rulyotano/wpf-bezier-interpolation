@@ -1,5 +1,4 @@
 ﻿using BezierCurveSample.Common.Geometry;
-using BezierCurveSample.View.Utils;
 using System.Collections.Generic;
 
 namespace BezierCurveTests.Common.Geometry

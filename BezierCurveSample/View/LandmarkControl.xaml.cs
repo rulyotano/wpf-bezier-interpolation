@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using BezierCurveSample.View.Utils;
+using BezierCurveSample.Common.Geometry;
 using Point = BezierCurveSample.Common.Geometry.Point;
 
 namespace BezierCurveSample.View
@@ -130,7 +130,7 @@ namespace BezierCurveSample.View
 
             var myPathSegmentCollection = new PathSegmentCollection();
 
-            var beizerSegments = Interpolation.InterpolatePointWithBeizerCurves(points, IsClosedCurve);
+            var beizerSegments = Interpolation.PoinsToBeizerCurves(points, IsClosedCurve);
 
             if (beizerSegments == null || beizerSegments.Count < 1)
             {

@@ -1,6 +1,4 @@
-﻿using BezierCurveSample.Common.Geometry;
-
-namespace BezierCurveSample.View.Utils
+﻿namespace BezierCurveSample.Common.Geometry
 {
     public class BeizerCurveSegment
     {
@@ -30,9 +28,9 @@ namespace BezierCurveSample.View.Utils
             if (otherCurve == null)
                 return false;
 
-            return otherCurve.StartPoint.Equals(StartPoint) 
-                && otherCurve.FirstControlPoint.Equals(FirstControlPoint) 
-                && otherCurve.SecondControlPoint.Equals(SecondControlPoint) 
+            return otherCurve.StartPoint.Equals(StartPoint)
+                && otherCurve.FirstControlPoint.Equals(FirstControlPoint)
+                && otherCurve.SecondControlPoint.Equals(SecondControlPoint)
                 && otherCurve.EndPoint.Equals(EndPoint);
         }
     }

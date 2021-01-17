@@ -1,10 +1,14 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
+using BezierCurveSample.Common.Geometry;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace BezierCurveSample.ViewModel
 {
-    public class MainViewModel:ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         public MainViewModel()
         {
@@ -37,7 +41,7 @@ namespace BezierCurveSample.ViewModel
         }
 
         #endregion
-        
+
         #region Points
 
         private ObservableCollection<PointViewModel> _Points;
@@ -53,7 +57,7 @@ namespace BezierCurveSample.ViewModel
 
             //TODO: Add initials the items
             toRet.Add(new PointViewModel(173, 42));
-            toRet.Add(new PointViewModel(5,1));
+            toRet.Add(new PointViewModel(5, 1));
             toRet.Add(new PointViewModel(64, 84));
             toRet.Add(new PointViewModel(210, 64));
             toRet.Add(new PointViewModel(191, 90));
@@ -98,6 +102,48 @@ namespace BezierCurveSample.ViewModel
         }
 
         #endregion
+
+        #region AddPoints
+
+        private bool _addPoints;
+        private const string AddPointsName = "AddPoints";
+
+        public bool AddPoints
+        {
+            get { return _addPoints; }
+            set
+            {
+                if (_addPoints != value)
+                {
+                    _addPoints = value;
+                    RaisePropertyChanged(AddPointsName);
+                }
+            }
+        }
+
+        #endregion
+
+        #region CanvasClickCommand
+
+        private RelayCommand<PointViewModel> _canvasClickCommand;
+        public RelayCommand<PointViewModel> CanvasClickCommand
+        {
+            get => _canvasClickCommand ?? new RelayCommand<PointViewModel>((t) =>
+                {
+                    var newPoint = new Point(t.X, t.Y);
+                    var newPointModel = new PointViewModel(t.X, t.Y);
+                    var pointsList = Points.Select(it => new Point(it.X, it.Y));
+                    var insertIndex = Interpolation.BestPlaceToInsert(newPoint, pointsList.ToList());
+                    if (insertIndex == Points.Count)
+                    {
+                        Points.Add(newPointModel);
+                        return;
+                    }
+                    Points.Insert(insertIndex, newPointModel);
+                }, (t) => AddPoints);
+        }
+
+        #endregion
     }
-    
+
 }

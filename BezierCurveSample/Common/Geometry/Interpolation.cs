@@ -1,13 +1,11 @@
-﻿using BezierCurveSample.Common.Geometry;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BezierCurveSample.View.Utils
+namespace BezierCurveSample.Common.Geometry
 {
     public class Interpolation
     {
-        public static List<BeizerCurveSegment> InterpolatePointWithBeizerCurves(List<Point> points, bool isClosedCurve, double smoothValue = 0.8)
+        public static List<BeizerCurveSegment> PoinsToBeizerCurves(List<Point> points, bool isClosedCurve, double smoothValue = 0.8)
         {
             if (points.Count < 3)
                 return null;
@@ -113,6 +111,46 @@ namespace BezierCurveSample.View.Utils
             }
 
             return toRet;
+        }
+
+        /// <summary>
+        /// Find best place to insert a new point by minimizing the total length
+        /// </summary>
+        /// <param name="newPoint"></param>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        public static int BestPlaceToInsert(Point newPoint, List<Point> points)
+        {
+            if (points.Count == 0) return 0;
+            if (points.Count == 1) return 1;
+
+            var bestIndex = 0;
+            var bestDistance = Geometry.EuclideanDistance(newPoint, points.First());
+
+            for (int i = 1; i < points.Count; i++)
+            {
+                var previousPoint = points[i - 1];
+                var currentPoint = points[i];
+                var oldDistance = Geometry.EuclideanDistance(previousPoint, currentPoint);
+                var distance1 = Geometry.EuclideanDistance(previousPoint, newPoint);
+                var distance2 = Geometry.EuclideanDistance(newPoint, currentPoint);
+                var distanceDifference = distance1 + distance2 - oldDistance;
+                if (distanceDifference < bestDistance)
+                {
+                    bestDistance = distanceDifference;
+                    bestIndex = i;
+                }
+            }
+
+
+            var lastDistance = Geometry.EuclideanDistance(points.Last(), newPoint);
+
+            if (lastDistance < bestDistance)
+            {
+                bestIndex = points.Count;
+            }
+
+            return bestIndex;
         }
     }
 }
