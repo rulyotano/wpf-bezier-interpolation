@@ -2,9 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using BezierCurveSample.Common.Geometry;
+using Rulyotano.Math;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Rulyotano.Math.Geometry;
 
 namespace BezierCurveSample.ViewModel
 {
@@ -133,7 +134,7 @@ namespace BezierCurveSample.ViewModel
                     var newPoint = new Point(t.X, t.Y);
                     var newPointModel = new PointViewModel(t.X, t.Y);
                     var pointsList = Points.Select(it => new Point(it.X, it.Y));
-                    var insertIndex = Interpolation.BestPlaceToInsert(newPoint, pointsList.ToList());
+                    var insertIndex = Helpers.BestPlaceToInsert(newPoint, pointsList.ToList());
                     if (insertIndex == Points.Count)
                     {
                         Points.Add(newPointModel);

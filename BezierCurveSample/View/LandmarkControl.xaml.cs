@@ -6,8 +6,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using BezierCurveSample.Common.Geometry;
-using Point = BezierCurveSample.Common.Geometry.Point;
+using Rulyotano.Math;
+using Point = Rulyotano.Math.Geometry.Point;
 
 namespace BezierCurveSample.View
 {

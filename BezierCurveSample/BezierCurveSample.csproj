@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Rulyotano.Math, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rulyotano.Math.1.0.0\lib\net45\Rulyotano.Math.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,10 +74,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Common\Geometry\BeizerCurveSegment.cs" />
-    <Compile Include="Common\Geometry\Geometry.cs" />
-    <Compile Include="Common\Geometry\Point.cs" />
-    <Compile Include="Common\Numeric.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PointViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -83,7 +82,6 @@
     <Compile Include="View\LandmarkControl.xaml.cs">
       <DependentUpon>LandmarkControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\Geometry\Interpolation.cs" />
     <Compile Include="View\Utils\ViewUtils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
