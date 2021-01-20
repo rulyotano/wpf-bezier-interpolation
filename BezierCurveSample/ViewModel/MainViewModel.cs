@@ -74,6 +74,7 @@ namespace BezierCurveSample.ViewModel
 
         private void OnPointsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
+            RaisePropertyChanged("PathText");
             if (e.NewItems != null)
             {
             }
@@ -142,6 +143,19 @@ namespace BezierCurveSample.ViewModel
                     }
                     Points.Insert(insertIndex, newPointModel);
                 }, (t) => AddPoints);
+        }
+
+        #endregion
+
+        #region PathText
+
+        public string PathText
+        {
+            get
+            {
+                var interpolationSegments = Interpolation.PointsToBezierCurves(Points.Select(it => new Point(it.X, it.Y)).ToList(), false);
+                return interpolationSegments.BezierToPath();
+            }
         }
 
         #endregion

@@ -130,9 +130,9 @@ namespace BezierCurveSample.View
 
             var myPathSegmentCollection = new PathSegmentCollection();
 
-            var beizerSegments = Interpolation.PoinsToBeizerCurves(points, IsClosedCurve);
+            var bezierSegments = Interpolation.PointsToBezierCurves(points, IsClosedCurve);
 
-            if (beizerSegments == null || beizerSegments.Count < 1)
+            if (bezierSegments == null || bezierSegments.Count < 1)
             {
                 //Add a line segment <this is generic for more than one line>
                 foreach (var point in points.GetRange(1, points.Count - 1))
@@ -144,13 +144,13 @@ namespace BezierCurveSample.View
             }
             else
             {
-                foreach (var beizerCurveSegment in beizerSegments)
+                foreach (var bezierCurveSegment in bezierSegments)
                 {
                     var segment = new BezierSegment
                     {
-                        Point1 = ConvertToVisualPoint(beizerCurveSegment.FirstControlPoint),
-                        Point2 = ConvertToVisualPoint(beizerCurveSegment.SecondControlPoint),
-                        Point3 = ConvertToVisualPoint(beizerCurveSegment.EndPoint)
+                        Point1 = ConvertToVisualPoint(bezierCurveSegment.FirstControlPoint),
+                        Point2 = ConvertToVisualPoint(bezierCurveSegment.SecondControlPoint),
+                        Point3 = ConvertToVisualPoint(bezierCurveSegment.EndPoint)
                     };
                     myPathSegmentCollection.Add(segment);
                 }
