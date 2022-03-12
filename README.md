@@ -16,7 +16,7 @@ In this example app, the points can be dragged by the user, and also can be draw
 Also was added the adding points in the best curve placement behavior. Now when clicking in some canvas locations, a point is added to the curve and inserted at the right point.
 
 ## UPDATE 2.0: 
-The math related to the interpolation has been refactored to a new .Nuget package. In this way becomes more ease to use it in other projects. This packages is [Rulyotano.Math](https://www.nuget.org/packages/Rulyotano.Math/) and the code can be found at [Github Project](https://github.com/rulyotano/Rulyotano.Math).
+The math related to the interpolation has been refactored to a new .Nuget package. In this way becomes more ease to use it in other projects. This packages is [Rulyotano.Math.Interpolation.Bezier](https://www.nuget.org/packages/Rulyotano.Math.Interpolation.Bezier) and the code can be found at [Github Project](https://github.com/rulyotano/Rulyotano.CrossCutting/tree/main/src/Rulyotano.Math.Interpolation.Bezier).
 
 ## Want to contribute?
 You are welcome!
