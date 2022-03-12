@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using Rulyotano.Math;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Rulyotano.Math.Geometry;
+using Rulyotano.Math.Interpolation.Bezier;
 
 namespace BezierCurveSample.ViewModel
 {
@@ -153,7 +152,7 @@ namespace BezierCurveSample.ViewModel
         {
             get
             {
-                var interpolationSegments = Interpolation.PointsToBezierCurves(Points.Select(it => new Point(it.X, it.Y)).ToList(), false);
+                var interpolationSegments = BezierInterpolation.PointsToBezierCurves(Points.Select(it => new Point(it.X, it.Y)).ToList(), false);
                 return interpolationSegments.BezierToPath();
             }
         }

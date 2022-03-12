@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Rulyotano.Math;
+using Rulyotano.Math.Interpolation.Bezier;
 using Point = Rulyotano.Math.Geometry.Point;
 
 namespace BezierCurveSample.View
@@ -130,7 +130,7 @@ namespace BezierCurveSample.View
 
             var myPathSegmentCollection = new PathSegmentCollection();
 
-            var bezierSegments = Interpolation.PointsToBezierCurves(points, IsClosedCurve);
+            var bezierSegments = BezierInterpolation.PointsToBezierCurves(points, IsClosedCurve);
 
             if (bezierSegments == null || bezierSegments.Count < 1)
             {
