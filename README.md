@@ -1,6 +1,10 @@
 # WPF-Bezier-Interpolation
 
-This is a sample project for the CodeProject article <a href="http://www.codeproject.com/Articles/769055/Interpolate-2D-points-usign-Bezier-curves-in-WPF">Interpolate 2D points, usign Bezier curves in WPF<a/>. I suggest to read the article.
+This is a sample project for the CodeProject article <a href="http://www.codeproject.com/Articles/769055/Interpolate-2D-points-usign-Bezier-curves-in-WPF">Interpolate 2D points, usign Bezier curves in WPF<a/>. I suggest reading the article.
+
+[Live JS Demo](https://rulyotano.com/demos/bezier)
+
+☝️ you can play a bit with the live JS demo. It is the same algorithm implemented for JS.
 
 ![Alt text](interpolation-bezier-curves.gif?raw=true "The sample running")
 
